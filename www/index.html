@@ -1,15 +1,48 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Clownfish</title>
-        <link rel="stylesheet" href="style.css" />
+        <meta charset=utf-8>
+        <title>Clownfish - Upload a File</title>
+        <link rel=stylesheet href=style.css>
     </head>
-    <body id="home">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            Select a file:
-            <br><input type="file" name="file" id="file">
-            <br><input type="submit" value="Submit" name="submit">
+    <body>
+        <form action=upload.php method=post enctype=multipart/form-data>
+            <div id=file-label-container>
+                <label id=file-label for=file class=label-blue>Choose File</label>
+                <br>
+                <br>
+            </div>
+            <div id=submit-label-container style="display: none;" >
+                <label id=submit-label for=submit class=label-green>Upload</label>
+                <br>
+            </div>
+            <input id=file name=file type=file class=labeled-input>
+            <input id=submit name=submit type=submit class=labeled-input>
         </form>
+        <script>
+            var file = document.getElementById("file");
+            var oldfile = file.value;
+            var uploading = false;
+
+            document.getElementById("submit-label").onclick = function() {
+                var submitLabel = document.getElementById("submit-label");
+                uploading = true;
+                document.getElementById("file-label-container").setAttribute("style","display: none;");
+                submitLabel.innerHTML = "Uploading " + oldfile + "...";
+                submitLabel.setAttribute("class","label-grey");
+                submitLabel.setAttribute("style","cursor: default;");
+            }
+
+            function update() {
+                if (oldfile != file.value) {
+                    document.getElementById("file-label").innerHTML = file.value;
+                    document.getElementById("submit-label-container").removeAttribute("style");
+                    oldfile = file.value;
+                }
+                if (!uploading)
+                    setTimeout(update, 500);
+            }
+            update();
+        </script>
     </body>
 </html>
-
