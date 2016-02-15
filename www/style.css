@@ -19,6 +19,10 @@ label, .label {
     padding: 10px;
 }
 
+textarea {
+    display: none;
+}
+
 /* http://paletton.com/#uid=13i0u0koLAO4EZFbXU6GnikGu97 */
 .label-blue {
     background-color: #92E9E9;
@@ -54,7 +58,7 @@ label, .label {
 }
 
 #footer {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     padding: 10px;
