@@ -1,11 +1,18 @@
 body {
+    color: #444;
     font-family: sans-serif;
     font-size: 24px;
+    text-align: center;
+    padding: 42.0px;
 }
 
-label {
+h1 {
+    margin: 0;
+}
+
+label, .label {
     border-radius: 8px;
-    border-width: 4px;
+    border-width: 2px;
     border-style: solid;
     cursor: pointer;
     display: inline-block;
@@ -30,9 +37,25 @@ label {
     background-color: #bbbbbb;
     border-color: #171717;
     color: #171717;
+    cursor: default;
 }
 
 
 .labeled-input {
     display: none;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.github-link {
+    font-size: 16px;
+}
+
+#footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
 }
