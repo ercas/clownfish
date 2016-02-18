@@ -4,6 +4,7 @@
         <meta charset=utf-8>
         <title>Clownfish - Upload a File</title>
         <link rel=stylesheet href=style.css>
+        <script src=selector.js></script>
     </head>
     <body>
         <h1>Clownfish</h1>
@@ -23,18 +24,22 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_path)) {
 
     echo '
         Converting <div class="label label-grey">' . $input_name . '</div>
-        <br>from <div class="label label-blue">' . $input_format .'</div>
-        <br>to <div class="label label-blue">' . $output_format . '</div>
-        <br>using <div class="label label-blue">' . $converter. '</div>
+        <br>from <div id=input-format-selector class="label label-blue">' . $input_format .'</div>
+        <br>to <div id=output-format-selector class="label label-blue">' . $output_format . '</div>
+        <br>using <div id=converter-selector class="label label-blue">' . $converter. '</div>
         <br><label for=submit class="label label-green">Start</label>
 
         <form action=processing.php method=post>
             <textarea name=session_hash readonly>' . $session_hash . '</textarea>
-            <textarea name=input_format readonly>' . $input_format . '</textarea>
-            <textarea name=output_format readonly>' . $output_format . '</textarea>
-            <textarea name=converter readonly>' . $converter . '</textarea>
+            <textarea id=input_format name=input_format readonly>' . $input_format . '</textarea>
+            <textarea id=output_format name=output_format readonly>' . $output_format . '</textarea>
+            <textarea id=converter name=converter readonly>' . $converter . '</textarea>
             <input id=submit name=submit type=submit class=labeled-input>
         </form>
+
+        <script>createSelector("input-format-selector","input_format","' . $input_format . '",["' . $input_format . '","png","jpg","gif","tiff"])</script>
+        <script>createSelector("output-format-selector","output_format","' . $output_format . '",["' . $output_format . '","png","jpg","gif","tiff"])</script>
+        <script>createSelector("converter-selector","converter","' . $converter . '",["' . $converter . '","foremost"])</script>
     ';
 
 } else

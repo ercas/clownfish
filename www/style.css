@@ -64,8 +64,16 @@ textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    margin: 40px;
     background: rgba(255,255,255,0.5);
+}
+
+#selector-container {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
 }
 
 #footer {
