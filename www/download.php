@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset=utf-8>
-        <title>Clownfish - Upload a File</title>
+        <title>Clownfish - Download</title>
         <link rel=stylesheet href=style.css>
     </head>
     <body>
@@ -10,8 +10,10 @@
         <span class=description>a universal file conversion service</span>
         <br>
 <?php
-if (isset($_POST["session_hash"]) and file_exists("converted/" . $_POST["session_hash"]))
-    echo '<br><a class="label label-green" href=converted/' . $_POST["session_hash"] . '>Download your file</a>';
+/* glob because of variable file extensions */
+$file_glob = (glob("converted/" . $_POST["session_hash"] . "*"));
+if (isset($_POST["session_hash"]) and count($file_glob) > 0)
+    echo '<a class="label label-green" href="' . $file_glob[0] . '">Download your file</a>';
 else
     echo '<br>An error occurred. <a href=/>Try again?</a>';
 ?>

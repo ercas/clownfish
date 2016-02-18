@@ -23,13 +23,9 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_path)) {
 
     echo '
         Converting <div class="label label-grey">' . $input_name . '</div>
-        <br>
         <br>from <div class="label label-blue">' . $input_format .'</div>
-        <br>
         <br>to <div class="label label-blue">' . $output_format . '</div>
-        <br>
         <br>using <div class="label label-blue">' . $converter. '</div>
-        <br>
         <br><label for=submit class="label label-green">Start</label>
 
         <form action=processing.php method=post>
