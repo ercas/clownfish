@@ -1,8 +1,15 @@
-// create an overlay selector for the given buttonElementId, fieldElementId,
-// default option, and an array of possible options. when the button element is
-// clicked, a full-screen selector is displayed.
-// when a selection is clicked, the selector is removed and the innerHTML of
-// the button and the field are changed to the value of the clicked selection.
+/*
+create an overlay selector for the given buttonElementId, fieldElementId,
+default option, and an array of possible options. when the button element is
+clicked, a full-screen selector is displayed. the default option must exist in
+the array of possible options.
+
+when a selection is clicked, the selector is removed and the innerHTML of
+the button and the field are changed to the value of the clicked selection.
+
+example: createSelector("food-label","food-hidden-textarea","orange",["orange",
+    "banana","apricot","pineapple","peach"])
+*/
 function createSelector(buttonElementId,fieldElementId,defaultOpt,opts) {
     var element = document.getElementById(buttonElementId);
     var field = document.getElementById(fieldElementId);
@@ -35,9 +42,9 @@ function createSelector(buttonElementId,fieldElementId,defaultOpt,opts) {
             overlay.appendChild(container);
 
             // function to create a single selection in the selector menu
-            function createSelection(opt,colorClass) {
+            function createSelection(opt,classAttribute) {
                 var button = document.createElement("div");
-                button.setAttribute("class","label " + colorClass);
+                button.setAttribute("class",classAttribute);
                 button.innerHTML = opt;
                 button.onclick = function() {
                     document.body.removeChild(overlay);
@@ -50,9 +57,9 @@ function createSelector(buttonElementId,fieldElementId,defaultOpt,opts) {
             // iterate through possible options, creating selections for each
             for (var i = 0; i < opts.length; i++) {
                 if (opts[i] == currentOpt)
-                    createSelection(opts[i],"label-green");
+                    createSelection(opts[i],"label label-green");
                 else
-                    createSelection(opts[i],"label-blue");
+                    createSelection(opts[i],"label label-blue");
             }
         }
     }

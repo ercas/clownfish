@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Clownfish</h1>
-        <span class=description>a universal file conversion service</span>
+        <span class=description>a universal file conversion service - <a href=about.html>about</a></span>
         <br>
         <br>
 <?php
@@ -29,7 +29,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_path)) {
         <br>using <div id=converter-selector class="label label-blue">' . $converter. '</div>
         <br><label for=submit class="label label-green">Start</label>
 
-        <form action=processing.php method=post>
+        <form action=processing.php method=get>
             <textarea name=session_hash readonly>' . $session_hash . '</textarea>
             <textarea id=input_format name=input_format readonly>' . $input_format . '</textarea>
             <textarea id=output_format name=output_format readonly>' . $output_format . '</textarea>
