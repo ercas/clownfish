@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Clownfish</h1>
-        <span class=description>a universal file conversion service - <a href=about.html>about</a></span>
+        <span class=description>a universal file conversion service - <a href=about.html target=_blank>about</a></span>
         <br>
 <?php
 /* glob because of variable file extensions */

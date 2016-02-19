@@ -1,0 +1,21 @@
+REGEX|FORMAT
+$comment|
+$comment|images
+$comment|
+^JPEG image data|jpg
+^PNG image data|png
+^GIF image data|gif
+$comment|
+$comment|videos
+$comment|
+MPEG ADTS, layer III|mp3
+$comment|
+$comment|audio
+$comment|
+^Matroska data|mkv
+^WebM|webm
+$comment|
+$comment|audio
+$comment|
+^PDF document|pdf
+^SVG|svg

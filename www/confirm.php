@@ -2,13 +2,13 @@
 <html>
     <head>
         <meta charset=utf-8>
-        <title>Clownfish - Upload a File</title>
+        <title>Clownfish - Choose a Format</title>
         <link rel=stylesheet href=style.css>
         <script src=selector.js></script>
     </head>
     <body>
         <h1>Clownfish</h1>
-        <span class=description>a universal file conversion service - <a href=about.html>about</a></span>
+        <span class=description>a universal file conversion service - <a href=about.html target=_blank target=_blank>about</a></span>
         <br>
         <br>
 <?php
@@ -18,7 +18,7 @@ $target_path = "uploads/" . $session_hash;
 
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_path)) {
 
-    $input_format = exec('file -b "' . $target_path . '"');
+    $input_format = exec('bash identify.sh "' . $target_path . '"');
     $output_format = "Content dump";
     $converter = "binwalk";
 
