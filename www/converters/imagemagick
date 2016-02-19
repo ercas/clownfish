@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+export MAGICK_TMPDIR=./cache/
+
+convert "$1" -layers merge -limit memory 32mb -limit map 64mb "$2"

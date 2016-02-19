@@ -1,21 +1,33 @@
-REGEX|FORMAT
-$comment|
-$comment|images
-$comment|
-^JPEG image data|jpg
-^PNG image data|png
-^GIF image data|gif
-$comment|
-$comment|videos
-$comment|
-MPEG ADTS, layer III|mp3
-$comment|
-$comment|audio
-$comment|
-^Matroska data|mkv
-^WebM|webm
-$comment|
-$comment|audio
-$comment|
-^PDF document|pdf
-^SVG|svg
+= rows are sorted in order of priority; if a file can be categorized as more
+= than one format, the first format will be chosen.
+= the same goes for converters, which are delimited by commas.
+
+REGEX|FORMAT|CONVERTERS|OUTPUTS
+
+========== images
+^GIF image data|gif|imagemagick
+^JPEG image data|jpg|imagemagick,exiftool
+^PNG image data|png|imagemagick
+^SVG|svg|inkscape,imagemagick
+
+========== image editing software
+^GIMP XCF image data|xcf|convertxcf
+
+========== videos
+^FLAC audio bitstream data|flac|ffmpeg
+MPEG ADTS, layer III|mp3|ffmpeg
+
+========== audio
+^Macromedia Flash Video|flv|ffmpeg
+^Matroska data|mkv|ffmpeg
+^WebM|webm|ffmpeg
+
+========== documents
+^LaTeX|tex|libreoffice
+^OpenDocument Spreadsheet|ods|libreoffice
+^OpenDocument Text|odt|libreoffice
+^PDF document|pdf|libreoffice
+
+========== plaintext
+^ASCII text|txt
+^UTF-8 Unicode text|txt
