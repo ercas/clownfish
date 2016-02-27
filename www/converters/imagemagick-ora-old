@@ -1,0 +1,34 @@
+#!/usr/bin/bash
+# deprecated; newer openrasters have a mergedimage.png
+
+export MAGICK_TMPDIR=./cache/
+tmpdir=$(mktemp -d imagemagick-ora-XXXXX)
+
+thisdir=$(pwd)
+unzip "$1" -d "$tmpdir"
+cd "$tmpdir"
+
+# print the contents of the attribute of a tag. the tag must be set to the
+# $line variable. ex: attribute src
+function attribute() {
+    grep -oP "(?<= $1=\").*?(?=\")" <<< "$line"
+}
+
+# parse stack.xml and run as an imagemagick script
+$(line=$(grep "<image" stack.xml)
+echo -n "convert -limit memory 32mb -limit map 64mb -size $(attribute w)x$(attribute h) xc:white "
+tac stack.xml | while read line; do
+    if grep -q "<layer" <<< "$line"; then
+        if [ $(attribute visibility) = "visible" ]; then
+            x=$(attribute x)
+            [ $x -gt 1 ] && x="+$x"
+            y=$(attribute y)
+            [ $y -gt 1 ] && y="+$y"
+            echo -n "\( $(attribute src) -alpha on -channel a -background transparent \) -gravity northwest -geometry ${x}x${y} -composite "
+        fi
+    fi
+done
+echo "$2")
+
+mv "$2" "$thisdir"
+rm -rf "$tmpdir"

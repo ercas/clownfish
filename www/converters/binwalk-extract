@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+tmpdir=$(readlink -f $(mktemp -d binwalk-XXXXX))
+out=$(readlink -f "$2")
+
+binwalk --extract --directory=$tmpdir "$1" | tee $tmpdir/binwalk-summary.txt
+cd "$tmpdir"
+zip -9r "$out" .
+
+rm -rf $tmpdir

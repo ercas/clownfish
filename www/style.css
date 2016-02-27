@@ -3,14 +3,8 @@ body {
     font-family: sans-serif;
     font-size: 24px;
     text-align: center;
-    padding: 42.0px;
+    padding: 10%;
 }
-
-/*
-a {
-    text-decoration: none;
-}
-*/
 
 a:link,a:visited {
     color: #602C49;
@@ -35,8 +29,9 @@ label, .label {
     margin: 10px;
 }
 
-p {
+p, li {
     text-align: left;
+    line-height: 1.6;
 }
 
 textarea {
@@ -49,12 +44,18 @@ textarea {
     border-color: #005858;
     color: #005858;
 }
+.label-blue:hover {
+    background-color: #D6FBFB;
+}
 
 /* http://paletton.com/#uid=12P0u0koLAO4EZFbXU6GnikGu97 */
 .label-green {
     background-color: #99F499;
     border-color: #007500;
     color: #007500;
+}
+.label-green:hover {
+    background-color: #D8FDD8;
 }
 
 .label-grey {

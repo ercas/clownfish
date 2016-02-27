@@ -1,33 +1,34 @@
 = rows are sorted in order of priority; if a file can be categorized as more
 = than one format, the first format will be chosen.
-= the same goes for converters, which are delimited by commas.
-
-REGEX|FORMAT|CONVERTERS|OUTPUTS
-
+MATCH|FORMAT
 ========== images
-^GIF image data|gif|imagemagick
-^JPEG image data|jpg|imagemagick,exiftool
-^PNG image data|png|imagemagick
-^SVG|svg|inkscape,imagemagick
-
+^GIF image data|gif
+^JPEG image data|jpg
+^PNG image data|png
+^SVG|svg
 ========== image editing software
-^GIMP XCF image data|xcf|convertxcf
-
+^GIMP XCF image data|xcf
 ========== videos
-^FLAC audio bitstream data|flac|ffmpeg
-MPEG ADTS, layer III|mp3|ffmpeg
-
+^FLAC audio bitstream data|flac
+MPEG ADTS, layer III|mp3
+^Ogg data, Theora audio|ogv
 ========== audio
-^Macromedia Flash Video|flv|ffmpeg
-^Matroska data|mkv|ffmpeg
-^WebM|webm|ffmpeg
-
+^Macromedia Flash Video|flv
+^Matroska data|mkv
+^Ogg data, Vorbis audio|ogg
+^WebM|webm
 ========== documents
-^LaTeX|tex|libreoffice
-^OpenDocument Spreadsheet|ods|libreoffice
-^OpenDocument Text|odt|libreoffice
-^PDF document|pdf|libreoffice
-
+EXT:docx|docx
+^HTML document|html
+EXT:md|md
+^OpenDocument Presentation|odp
+^OpenDocument Spreadsheet|ods
+^OpenDocument Text|odt
+^PDF document|pdf
+EXT:pptx|pptx
+^LaTeX|tex
+EXT:tex|tex
+EXT:xslx|xslx
 ========== plaintext
 ^ASCII text|txt
 ^UTF-8 Unicode text|txt

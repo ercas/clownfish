@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+export MAGICK_TMPDIR=./cache/
+tmpdir=$(mktemp -d imagemagick-ora-XXXXX)
+
+unzip "$1" -d "$tmpdir"
+convert $tmpdir/mergedimage.png -limit memory 32mb -limit map 64mb "$2"
+
+rm -r $tmpdir

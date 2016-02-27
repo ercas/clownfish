@@ -19,8 +19,8 @@ $target_path = "uploads/" . $session_hash;
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_path)) {
 
     $input_format = exec('bash identify.sh "' . $target_path . '"');
-    $output_format = "Content dump";
-    $converter = "binwalk";
+    $output_format = "jpg";
+    $converter = "imagemagick";
 
     echo '
         Converting <div class="label label-grey">' . $input_name . '</div>

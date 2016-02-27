@@ -6,15 +6,25 @@
         <link rel=stylesheet href=style.css>
     </head>
     <body>
-        <h1>Clownfish</h1>
-        <span class=description>a universal file conversion service</a>
+        <h1>About Clownfish</h1>
+        <span class=description>Jump to: <a href=#security>security</a> <a href=#tools>tools</a></span>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clownfish is an <a href=https://en.wikipedia.org/wiki/Ephemerality>ephemeral</a>, <a href=https://en.wikipedia.org/wiki/Free_and_open-source_software>free and open source</a> (FOSS) file conversion service, acting as a web-based frontend for many FOSS tools that can convert files from one format to another.
-            <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clownfish is an <a href=https://en.wikipedia.org/wiki/Ephemerality>ephemeral</a>, <a href=https://en.wikipedia.org/wiki/Free_and_open-source_software>free and open source</a> (FOSS) file conversion service acting as a frontend for many <a href=#tools>FOSS tools</a> that can convert files from one format to another.
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clownfish can be deployed quickly as a <a href=https://www.docker.com/>Docker</a> container or in a virtual machine to serve file conversion needs for people without access to a Unix-like operating system. It can also be deployed on a barebones Linux install, but in this case, it would no longer be ephemeral.
-            <br>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The source code for Clownfish is available on <a href=https://github.com/ercas/clownfish/>GitHub</a> under an <a href=https://github.com/ercas/clownfish/blob/master/LICENSE>MIT License</a>. This means you can do whatever you want with the source code as long as you include the license in derivative works and don't hold the author liable.
         </p>
-        </script>
+        <h2 id=security>Clownfish is not secure!</h2>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clownfish is currently an insecure service; any file that you send to or receive from Clownfish can be intercepted by a third party. Do not use Clownfish over the Internet for any sensitive file conversions; instead, run it in a container or virtual machine on your home network and make sure that there are no bad actors on your network and that Clownfish is not connected to the Internet.
+        </p>
+        <h2 id=tools>Tools used</h2>
+        <p>All tools used in Clownfish are free and open source.</p>
+        <ul>
+            <li><a href=http://imagemagick.org/script/index.php>ImageMagick</a>, a universal image editor with a command line interface that can convert almost any image file into an image of almost any other format</li>
+            <li><a href=https://ffmpeg.org/>FFmpeg</a>, the ImageMagick of audio and video files</li>
+            <li><a href=https://www.libreoffice.org/>LibreOffice</a>, an office suite that can convert between OpenDocument and Microsoft Office formats and generate PDF files from those formats</li>
+            <li><a href=http://binwalk.org/>Binwalk</a>, a firmware analysis tool</li>
+            <li><a href=http://foremost.sourceforge.net/>Foremost</a>, a fast, public domain data carving tool written by the U.S. Air Force and Naval Postgraduate School
+        </ul>
     </body>
 </html>

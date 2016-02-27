@@ -12,10 +12,20 @@
 <?php
 /* glob because of variable file extensions */
 $file_glob = (glob("converted/" . $_GET["session_hash"] . "*"));
-if (isset($_GET["session_hash"]) and count($file_glob) > 0)
-    echo '
-        <br><a class="label label-green" href="' . $file_glob[0] . '" download>Download your file</a>
+if (isset($_GET["session_hash"]) and count($file_glob) > 0) {
+    $file = $file_glob[0];
+    if (exec("head -c 5 " . $file) == "error") {
+        $error_contents = file_get_contents($file, NULL, NULL, 7);
+        if ($error_contents == "")
+            $error_contents = "unknown error";
+        echo '
+        <br>An error occurred:
+        <br>' . $error_contents . '
+        <br><a href=/>Try again?</a>
 ';
+    } else
+        echo '<br><a class="label label-green" href="' . $file . '" download>Download your file</a>';
+}
 else
     echo '<br>An error occurred. <a href=/>Try again?</a>';
 ?>

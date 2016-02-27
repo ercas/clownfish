@@ -10,6 +10,10 @@
         <span class=description>a universal file conversion service - <a href=about.html target=_blank>about</a></span>
         <br><img src=convert-animation.gif style="width: 300px; max-width: 80%;">
 <?php
+/* run process.sh to start the conversion process if it hasn't started already */
+/* the script exits on its own if it detects a duplicate, no need to worry */
+exec("bash process.sh " . $_GET["session_hash"] . " " . $_GET["converter"] . " " . $_GET["output_format"] . " &");
+
 /* glob because of variable file extensions */
 if (count(glob("converted/" . $_GET["session_hash"] . "*")) > 0)
     /* conversion is done, redirect user to download page */

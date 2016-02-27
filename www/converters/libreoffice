@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
-tmpdir=$(mktemp -d /tmp/libreoffice-XXXXX)
+tmpdir=$(mktemp -d libreoffice-XXXXX)
+
 libreoffice --headless --convert-to "${2##*.}" --outdir $tmpdir "$1"
+
 if [ -f $tmpdir/* ]; then
     mv $tmpdir/* "$2"
     rm -rf $tmpdir
